@@ -21,3 +21,8 @@ To see a list of components, visit [here](https://github.com/farooqkz/KaiUIv2/tr
 ## Contributing
 
 There are much to be done. See `TODO.md`
+
+
+## License
+
+All under MIT/X11 license as specified in LICENSE file.
