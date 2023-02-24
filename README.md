@@ -1,6 +1,6 @@
-# KaiUIv2
+# KaiUIng
 
-KaiUIv2 is a fork of [AdrianMachado's KaiUI](https://github.com/AdrianMachado/KaiUI) which is a UI component library for building KaiOS apps. Unfortunately, that library doesn't seem to be maintained anymore and the components are for React only.
+KaiUIng is a fork of [AdrianMachado's KaiUI](https://github.com/AdrianMachado/KaiUI) which is a UI component library for building KaiOS apps. Unfortunately, that library doesn't seem to be maintained anymore and the components are for React only.
 
 KaiUIv2 aims to provide styling only, and framework users use it to create UI libraries for the frameworks.
 
