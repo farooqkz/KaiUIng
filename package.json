@@ -1,5 +1,7 @@
 {
   "name": "KaiUI",
-  "version": "1.0.0",
-  "private": true
+  "version": "2.0.0",
+  "license": "ISC",
+  "description": "UI library for KaiOS",
+  "author": "Farooq Karimi Zadeh <fkz@riseup.net>"
 }

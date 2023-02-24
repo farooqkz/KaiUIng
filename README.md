@@ -25,4 +25,4 @@ There are much to be done. See `TODO.md`
 
 ## License
 
-All under MIT/X11 license as specified in LICENSE file.
+All under ISC license as specified in LICENSE file.
