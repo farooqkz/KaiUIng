@@ -6,10 +6,11 @@ KaiUIv2 aims to provide styling only, and framework users use it to create UI li
 
 ## Building and Usage
 
-Simply include as dependency in your `package.json`:
+Simply install it with npm or yarn:
 
 ```
-"KaiUIv2": "git+https://github.com/farooqkz/KaiUIv2.git"
+npm install kaiuing
+yarn add kaiuing
 ```
 
 ## Components
