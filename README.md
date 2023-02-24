@@ -12,8 +12,6 @@ Simply include as dependency in your `package.json`:
 "KaiUIv2": "git+https://github.com/farooqkz/KaiUIv2.git"
 ```
 
-The only dependency of KaiUIv2 is `node-sass` which requires a Node version from 14 to 19 on most platforms including Linux, OS X and Windows.
-
 ## Components
 
 To see a list of components, visit [here](https://github.com/farooqkz/KaiUIv2/tree/master/src/components). Documentations are to be written.
@@ -25,4 +23,4 @@ There are much to be done. See `TODO.md`
 
 ## License
 
-All under ISC license as specified in LICENSE file.
+All under ISC license.
