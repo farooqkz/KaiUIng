@@ -1,0 +1,29 @@
+{
+  "name": "KaiUIngInferno",
+  "version": "1.0.0",
+  "description": "Inferno library for KaiUIng",
+  "main": "dist/index.js",
+  "source": "src/index.js",
+  "scripts": {
+    "build": "parcel build"
+  },
+  "repository": "https://github.com/farooqkz/KaiUIng",
+  "author": "Farooq Karimi Zadeh",
+  "license": "LGPL-3.0-or-later",
+  "private": false,
+  "dependencies": {
+    "KaiUI": "npm:kaiuing@^2.0.0",
+    "classnames": "^2.3.2",
+    "inferno": "^8.0.6",
+    "inferno-extras": "^8.0.6",
+    "@swc/helpers": "^0.4.14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@parcel/transformer-babel": "^2.8.3",
+    "@parcel/transformer-sass": "^2.8.3",
+    "babel-plugin-inferno": "^6.6.0",
+    "parcel": "^2.8.3"
+  },
+  "browserslist": "Firefox 48"
+}
