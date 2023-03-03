@@ -51,7 +51,10 @@ class ListView extends Component {
 
   componentDidUpdate() {
     const { cursor, children } = this.props;
-    findDOMNode(children[cursor]).scrollIntoView();
+    if (children instanceof Array) 
+      findDOMNode(children[cursor]).scrollIntoView();
+    else
+      findDOMNode(children).scrollIntoView();
   }
 
   componentDidMount() {
