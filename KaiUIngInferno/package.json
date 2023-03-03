@@ -4,6 +4,7 @@
   "description": "Inferno library for KaiUIng",
   "main": "dist/index.js",
   "source": "src/index.js",
+  "module": "dist/module.js",
   "scripts": {
     "build": "parcel build"
   },
@@ -13,9 +14,6 @@
   "private": false,
   "dependencies": {
     "KaiUI": "npm:kaiuing@^2.0.0",
-    "classnames": "^2.3.2",
-    "inferno": "^8.0.6",
-    "inferno-extras": "^8.0.6",
     "@swc/helpers": "^0.4.14"
   },
   "devDependencies": {
@@ -23,7 +21,26 @@
     "@parcel/transformer-babel": "^2.8.3",
     "@parcel/transformer-sass": "^2.8.3",
     "babel-plugin-inferno": "^6.6.0",
-    "parcel": "^2.8.3"
+    "inferno-router": "^8.0.6",
+    "parcel": "^2.8.3",
+    "inferno": "^8.0.6",
+    "inferno-extras": "^8.0.6",
+    "classnames": "^2.3.2"
   },
-  "browserslist": "Firefox 48"
+  "peerDependencies": {
+    "inferno": "^8.0.6",
+    "inferno-extras": "^8.0.6",
+    "classnames": "^2.3.2"
+  },
+  "browserslist": "Firefox 48",
+  "targets": {
+    "main": {
+      "isLibrary": true,
+      "includeNodeModules": {
+        "inferno": false,
+        "inferno-extras": false,
+        "classnames": false
+      }
+    }
+  }
 }
