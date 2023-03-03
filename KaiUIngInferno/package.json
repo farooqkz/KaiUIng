@@ -1,5 +1,5 @@
 {
-  "name": "KaiUIngInferno",
+  "name": "kaiuing-inferno",
   "version": "1.0.0",
   "description": "Inferno library for KaiUIng",
   "main": "dist/index.js",
