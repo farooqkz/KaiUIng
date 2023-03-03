@@ -2,7 +2,6 @@
   "name": "KaiUIngInferno",
   "version": "1.0.0",
   "description": "Inferno library for KaiUIng",
-  "main": "dist/index.js",
   "source": "src/index.js",
   "module": "dist/module.js",
   "scripts": {
@@ -36,6 +35,7 @@
   "targets": {
     "main": {
       "isLibrary": true,
+      "source": "dist/index.js",
       "includeNodeModules": {
         "inferno": false,
         "inferno-extras": false,
