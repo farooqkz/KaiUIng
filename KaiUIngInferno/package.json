@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Inferno library for KaiUIng",
   "source": "src/index.js",
+  "main": "dist/index.js",
   "module": "dist/module.js",
   "scripts": {
     "build": "parcel build"
@@ -27,15 +28,26 @@
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
-    "inferno": "^8.0.6",
-    "inferno-extras": "^8.0.6",
+    "inferno": "^8",
+    "inferno-extras": "^8",
     "classnames": "^2.3.2"
   },
   "browserslist": "Firefox 48",
   "targets": {
     "main": {
       "isLibrary": true,
-      "source": "dist/index.js",
+      "source": "src/index.js",
+      "outputFormat": "commonjs",
+      "includeNodeModules": {
+        "inferno": false,
+        "inferno-extras": false,
+        "classnames": false
+      }
+    },
+    "module": {
+      "isLibrary": true,
+      "source": "src/index.js",
+      "outputFormat": "esmodule",
       "includeNodeModules": {
         "inferno": false,
         "inferno-extras": false,
