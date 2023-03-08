@@ -12,7 +12,8 @@ class DropDownMenu extends Component {
   }
 
   render() {
-    const { title, selectCb } = this.props;
+    const { title, selectCb, labels } = this.props;
+    const cursor = this.state.cursor;
     let children =
       this.props.children instanceof Array
         ? this.props.children
@@ -58,7 +59,7 @@ class DropDownMenu extends Component {
         </ListView>
         <SoftKey
           centerText="Select"
-          centerCb={() => selectCb(this.state.cursor)}
+          centerCb={() => selectCb(labels[cursor])}
         />
       </div>
     );
