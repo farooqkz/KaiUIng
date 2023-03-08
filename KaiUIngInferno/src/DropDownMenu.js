@@ -47,7 +47,6 @@ class DropDownMenu extends Component {
             "SoftLeft",
             "SoftRight",
             "Call",
-            "Enter",
           ]}
           $HasKeyedChildren
         >
