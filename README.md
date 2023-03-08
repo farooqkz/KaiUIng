@@ -15,6 +15,16 @@ npm install kaiuing
 yarn add kaiuing
 ```
 
+### The Inferno bindings
+
+To use the Inferno bindings:
+
+```
+yarn add kaiuing-inferno
+```
+
+There is no docs at the moment. But you can see [chooj](https://github.com/farooqkz/chooj) on how to use these components.
+
 ## Components
 
 To see a list of components, visit [here](https://github.com/farooqkz/KaiUIng/tree/master/src/components). Documentations are to be written.
@@ -26,4 +36,5 @@ There are much to be done. See `TODO.md`
 
 ## License
 
-All under ISC license.
+ - KaiUIng under ISC license.
+ - KaiUIng-Inferno under GPLv3 or later license as published by FSF.
