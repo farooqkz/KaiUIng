@@ -25,7 +25,9 @@
     "inferno": "^8.0.6",
     "inferno-extras": "^8.0.6",
     "inferno-router": "^8.0.6",
-    "parcel": "^2.8.3"
+    "parcel": "^2.8.3",
+    "ts-plugin-inferno": "^1.0.0",
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
     "classnames": "^2.3.2",
