@@ -13,14 +13,16 @@ interface ITextListItemProps {
   tertiary?: string;
   className?: string;
   isFocused?: Boolean;
+  focusClass?: string;
 };
 
 class TextListItem extends Component<ITextListItemProps> {
   private secondaryCls: string;
-  private tertirayCls: string;
+  private tertiaryCls: string;
   private className: string;
+  private divRef: any;
 
-  constructor(props) {
+  constructor(props: ITextListItemProps) {
     const { tertiary, secondary, className } = props;
     super(props);
     this.secondaryCls = `${prefixCls}-secondary ${secondary ? "" : "hidden"}`;

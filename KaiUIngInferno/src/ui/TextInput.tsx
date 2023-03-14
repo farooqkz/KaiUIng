@@ -7,8 +7,21 @@ const prefixCls = "kai-text-input";
 const labelCls = `${prefixCls}-label p-thi`;
 const inputCls = `${prefixCls}-label p-pri`;
 
-class TextInput extends Component {
-  constructor(props) {
+interface ITextInputProps {
+  onChange?: (evt: InputEvent | KeyboardEvent) => void;
+  isFocused?: Boolean;
+  fieldType: string;
+  label: string;
+  defaultValue?: string;
+  placeholder?: string;
+}
+
+class TextInput extends Component<ITextInputProps> {
+  private onChange: ITextInputProps["onChange"];
+  private textInput: any;
+  public state: { value: string };
+
+  constructor(props: ITextInputProps) {
     const { defaultValue } = props;
     super(props);
     this.onChange = (evt) => {

@@ -1,10 +1,22 @@
 import ListView from "./views/ListView";
 import Header from "./ui/Header";
 import SoftKey from "./ui/SoftKey";
-import { Component } from "inferno";
+import { Component, } from "inferno";
 
-class DropDownMenu extends Component {
-  constructor(props) {
+interface IDropDownMenuState {
+  cursor: number;
+}
+
+interface IDropDownMenuProps {
+  title: string;
+  selectCb: (label: string) => void;
+  labels: Array<string>;
+  children: VNode | InfernoVNodeArray;
+}
+
+class DropDownMenu extends Component<IDropDownMenuProps> {
+  public state: IDropDownMenuState;
+  constructor(props: IDropDownMenuProps) {
     super(props);
     this.state = {
       cursor: 0,
@@ -18,9 +30,9 @@ class DropDownMenu extends Component {
       this.props.children instanceof Array
         ? this.props.children
         : [this.props.children];
-    const listViewHeight =
-      children.length * 6 + 1 + (window.isFullScreen ? 0 : 2);
-    const divLength = listViewHeight + 6;
+    const listViewHeight: number =
+      children.length * 6 + 3;
+    const divLength: number = listViewHeight + 6;
     return (
       <div
         style={{
@@ -36,8 +48,11 @@ class DropDownMenu extends Component {
       >
         <Header text={title} />
         <ListView
-          cursorChangeCb={(cursor) => this.setState({ cursor: cursor })}
-          cursor={this.state.cursor}
+          cursorChangeCb={(cur: number) => this.setState((state: IDropDownMenuState) => {
+            state.cursor = cur;
+            return;
+          })}
+          cursor={cursor}
           height={listViewHeight.toString() + "rem"}
           captureKeys={[
             "ArrowUp",
@@ -49,9 +64,12 @@ class DropDownMenu extends Component {
             "Call",
           ]}
           $HasKeyedChildren
+          ref={(ref) => {
+            console.log("THE LV", ref);
+          }}
         >
-          {children.map((item, index) => {
-            item.props.isFocused = index === this.state.cursor;
+          {children.map((item, index: number) => {
+            item.props.isFocused = index === cursor;
             item.props.key = index;
             return item;
           })}

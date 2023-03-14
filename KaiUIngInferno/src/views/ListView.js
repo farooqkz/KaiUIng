@@ -2,29 +2,31 @@ import "KaiUI/src/views/ListView/ListView.scss";
 import { Component } from "inferno";
 import { findDOMNode } from "inferno-extras";
 
+function asArray(children) {
+  if (children instanceof Array) {
+    return children;
+  } else {
+    return [children];
+  }
+}
+
 class ListView extends Component {
   handleKeyDown = (evt) => {
     let cursor = this.state.cursor;
-    const { children, cursorChangeCb, captureKeys } = this.props;
+    const { cursorChangeCb, captureKeys } = this.props;
+    let children = asArray(this.props.children);
 
     if (captureKeys instanceof Array && captureKeys.includes(evt.key)) {
       evt.stopImmediatePropagation();
     }
     if (evt.key === "ArrowUp") {
       cursor--;
-      if (cursor === -1) cursor = children.length - 1;
-      if (children[cursor] && children[cursor].props.unFocusable) cursor--;
-      if (cursor === -1) cursor = children.length - 1;
-      // TODO: summarize all of these three "if"s
     } else if (evt.key === "ArrowDown") {
       cursor++;
-      if (cursor >= children.length) cursor = 0;
-      if (children[cursor] && children[cursor].props.unFocusable) cursor++;
-      if (cursor >= children.length) cursor = 0;
-      // TODO: same as above! ME LAZY Farooq
     }
-    if (children && children[cursor])
-      findDOMNode(children[cursor]).scrollIntoView();
+    cursor += children.length;
+    cursor %= children.length;
+    findDOMNode(children[cursor]).scrollIntoView();
     this.setState({
       cursor: cursor,
     });
@@ -33,7 +35,8 @@ class ListView extends Component {
 
   constructor(props) {
     super(props);
-    const { children, cursor, cursorChangeCb } = props;
+    const { cursor, cursorChangeCb } = props;
+    let children = asArray(props.children);
     if (cursor - 1 > children.length || cursor < 0) {
       console.error(
         `[ListView] cursor should be from 0 to ${
@@ -46,15 +49,11 @@ class ListView extends Component {
     this.state = {
       cursor: cursor,
     };
-    console.log(props.capture);
   }
 
   componentDidUpdate() {
     const { cursor, children } = this.props;
-    if (children instanceof Array) 
-      findDOMNode(children[cursor]).scrollIntoView();
-    else
-      findDOMNode(children).scrollIntoView();
+    findDOMNode(asArray(children)[cursor]).scrollIntoView();
   }
 
   componentDidMount() {
