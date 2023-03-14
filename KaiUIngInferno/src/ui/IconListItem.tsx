@@ -8,15 +8,15 @@ const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-line`;
 
 function IconListItem({
-  isFocused,
-  disabled,
-  primary,
-  secondary,
-  iconSrc,
-  iconWidth,
-  onClick,
-  icon,
-  className,
+  isFocused: Boolean,
+  disabled: undefined | Boolean,
+  primary: String,
+  secondary: String,
+  iconSrc: String,
+  iconWidth: number,
+  onClick: function,
+  icon: VNode,
+  className: String,
 }) {
   const focusedCls = isFocused
     ? `${prefixCls}-focused ${this.focusClass || ""}`

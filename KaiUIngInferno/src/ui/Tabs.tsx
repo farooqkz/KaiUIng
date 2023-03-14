@@ -4,8 +4,17 @@ import "KaiUI/src/components/Tabs/Tabs.scss";
 
 const prefixCls = "kai-tabs";
 
-class Tabs extends Component {
-  handleKeyDown = (evt) => {
+interface ITabsProps {
+  children: any;
+  onChangeIndex?: (cursor: number) => void;
+}
+
+class Tabs extends Component<ITabsProps> {
+  state: {
+    activeChild: number;
+  }
+
+  handleKeyDown = (evt: KeyboardEvent) => {
     if (!["ArrowLeft", "ArrowRight"].includes(evt.key)) return;
     const { children, onChangeIndex } = this.props;
     let index = this.state.activeChild;

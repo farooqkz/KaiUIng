@@ -7,7 +7,19 @@ const prefixCls = "kai-tl";
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-primary`;
 
-class TextListItem extends Component {
+interface ITextListItemProps {
+  primary?: string;
+  secondary?: string;
+  tertiary?: string;
+  className?: string;
+  isFocused?: Boolean;
+};
+
+class TextListItem extends Component<ITextListItemProps> {
+  private secondaryCls: string;
+  private tertirayCls: string;
+  private className: string;
+
   constructor(props) {
     const { tertiary, secondary, className } = props;
     super(props);
@@ -17,7 +29,7 @@ class TextListItem extends Component {
     this.divRef = createRef();
   }
 
-  componentDidUpdate(lastProps) {
+  componentDidUpdate() {
     if (this.props.isFocused && this.divRef.current)
       this.divRef.current.focus();
   }

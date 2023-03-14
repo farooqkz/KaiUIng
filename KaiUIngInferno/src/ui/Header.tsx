@@ -1,7 +1,7 @@
 import "KaiUI/src/components/Header/Header.scss";
 import "KaiUI/src/theme/colors.scss";
 
-function Header({ backgroundColor, text }) {
+function Header({ backgroundColor?: string, text: string }) {
   return (
     <header
       className="kai-header"
