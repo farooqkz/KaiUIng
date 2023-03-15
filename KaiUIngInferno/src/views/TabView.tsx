@@ -1,4 +1,4 @@
-import { Component } from "inferno";
+import { Component, VNode } from "inferno";
 import Tabs from "../ui/Tabs";
 import Tab from "../ui/Tab";
 import "KaiUI/src/views/TabView/TabView.scss";
@@ -9,10 +9,11 @@ const tabViewTabs = `${prefixCls}-tabs`;
 const tabViewContent = `${prefixCls}-content`;
 
 type TabViewProps = {
-  onChangeIndex?: (number) => void;
+  onChangeIndex?: (tab: number) => void;
   focusColor?: string;
   tabLabels: Array<string>;
   defaultActiveTab?: number;
+  children: Array<VNode>;
 };
 
 interface ITabViewState {
@@ -21,7 +22,7 @@ interface ITabViewState {
 
 class TabView extends Component<TabViewProps> {
   public focusColor: string;
-  public tabs: Array<JSX.Element>;
+  public tabs: Array<VNode>;
   public state: ITabViewState;
 
   handleChangeIndex = (tabIndex: number) => {
@@ -63,11 +64,11 @@ class TabView extends Component<TabViewProps> {
           {
             this.props.children
               .map(
-                (content, index) =>
+                (content: VNode, index: number) =>
                   index === this.state.activeTab ? content : null,
                 this
               )
-              .filter((content) => Boolean(content))[0]
+              .filter((content: VNode | null) => Boolean(content))[0]
           }
         </div>
       </div>
