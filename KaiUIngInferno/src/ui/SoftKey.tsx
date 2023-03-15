@@ -9,7 +9,7 @@ interface IButtonProps {
 }
 
 const prefixCls = "kai-softkey";
-function Button(props: IButtonProps) {'
+function Button(props: IButtonProps) {
   let renderedIcon: InfernoVNode;
   if (props.icon && props.icon.toString().indexOf("kai-") === -1) {
     renderedIcon = <img src={props.icon} width={20} height={20} alt="" />;
