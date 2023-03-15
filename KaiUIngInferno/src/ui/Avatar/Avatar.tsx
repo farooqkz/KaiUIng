@@ -1,12 +1,17 @@
 import "./Avatar.css";
 
-const presenceColor = {
-  online: "green",
-  offline: "gray",
-  unavailable: "orange",
+enum presenceColor {
+  online = "green",
+  offline = "gray",
+  unavailable = "orange",
+}
+
+type AvatarProps = {
+  avatar: string;
+  online?: string;
 };
 
-function Avatar({ avatar, online }) {
+function Avatar({ avatar, online }: AvatarProps) {
   return (
     <div className="avatar">
       <img className="avatar-img" alt="" src={avatar} />
