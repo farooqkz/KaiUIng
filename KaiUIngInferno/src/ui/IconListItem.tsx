@@ -7,19 +7,23 @@ const lineCls = `${prefixCls}-line`;
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-line`;
 
-function IconListItem({
-  isFocused: Boolean,
-  disabled: undefined | Boolean,
-  primary: String,
-  secondary: String,
-  iconSrc: String,
-  iconWidth: number,
-  onClick: function,
-  icon: VNode,
-  className: String,
-}) {
+interface IIconListItemProps {
+  isFocused?: Boolean;
+  disabled?: Boolean;
+  primary: string;
+  secondary?: string;
+  iconSrc?: string;
+  iconWidth: number;
+  onClick: () => void;
+  icon?: Node | string;
+  className: string;
+  focusClass?: string;
+}
+
+function IconListItem(props: IIconListItemProps) {
+  const { isFocused, focusClass, disabled, secondary, primary, icon, iconSrc, iconWidth } = props;
   const focusedCls = isFocused
-    ? `${prefixCls}-focused ${this.focusClass || ""}`
+    ? `${prefixCls}-focused ${focusClass || ""}`
     : "";
   const iconCls = `${prefixCls}-icon-${isFocused ? "focused" : "unfocused"}`;
   const secondaryCls = `${prefixCls}-secondary ${secondary ? "" : "hidden"}`;
@@ -28,7 +32,7 @@ function IconListItem({
   if (iconSrc)
     renderedIcon = <img src={iconSrc} alt="" width={iconWidth || 50} />;
   else if (icon instanceof String && icon.startsWith("kai"))
-    renderedIcon = <span className={icon} style={{ width: iconWidth }} />;
+    renderedIcon = <span className={icon} style={{ width: iconWidth.toString() }} />;
   // Then we assume it is a valid element TODO: check for this
   else renderedIcon = <span>{icon}</span>;
 
