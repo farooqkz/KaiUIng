@@ -2,6 +2,15 @@
   "compilerOptions": {
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "strict": true
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "noImplictReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "lib": ["es2017", "dom"],
+    "allowSyntheticDefaultImports": true
   }
 }
