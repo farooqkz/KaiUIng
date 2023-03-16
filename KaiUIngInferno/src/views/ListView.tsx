@@ -1,8 +1,20 @@
 import "KaiUI/src/views/ListView/ListView.scss";
-import { Component } from "inferno";
+import { Component, VNode } from "inferno";
 import { findDOMNode } from "inferno-extras";
 
-function asArray(children) {
+interface IListViewState {
+  cursor: number;
+}
+
+interface IListViewProps {
+  childern: Array<any>;
+  cursor: number;
+  cursorChangeCb?: (number) => void;
+  height?: number;
+  captureKeys?: Array<string>;
+}
+
+function asArray(children: Array | Element | VNode) : Array<VNode | Element> {
   if (children instanceof Array) {
     return children;
   } else {
@@ -10,7 +22,10 @@ function asArray(children) {
   }
 }
 
-class ListView extends Component {
+class ListView extends Component<IListViewProps> {
+  public state: IListViewState;
+  public handleKeyDown: (evt: KeyboardEvent) => void;
+
   handleKeyDown = (evt) => {
     let cursor = this.state.cursor;
     const { cursorChangeCb, captureKeys } = this.props;
@@ -74,6 +89,7 @@ class ListView extends Component {
 
   render() {
     const { height, children } = this.props;
+    const { cursor } = this.state;
     return (
       <div
         className={"kai-list-view"}
@@ -81,7 +97,10 @@ class ListView extends Component {
           height: height || "calc(100vh - 60px)",
         }}
       >
-        {children}
+        {children.map((child: VNode, index: number) => {
+          child.props.isFocused = index == cursor;
+          return child;
+        }}
       </div>
     );
   }
