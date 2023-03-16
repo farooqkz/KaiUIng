@@ -1,12 +1,12 @@
-import { Component } from "inferno";
+import { Component, VNode } from "inferno";
 import { findDOMNode } from "inferno-extras";
 import "KaiUI/src/components/Tabs/Tabs.scss";
 
 const prefixCls = "kai-tabs";
 
 interface ITabsProps {
-  children: any;
   onChangeIndex?: (cursor: number) => void;
+  defaultActiveChild?: number;
 }
 
 class Tabs extends Component<ITabsProps> {
@@ -16,7 +16,8 @@ class Tabs extends Component<ITabsProps> {
 
   handleKeyDown = (evt: KeyboardEvent) => {
     if (!["ArrowLeft", "ArrowRight"].includes(evt.key)) return;
-    const { children, onChangeIndex } = this.props;
+    const { onChangeIndex } = this.props;
+    let children = (typeof this.props.childern) === "array" ? this.props.children : [this.props.childern];
     let index = this.state.activeChild;
     children[index].props.isActive = false;
     switch (evt.key) {
