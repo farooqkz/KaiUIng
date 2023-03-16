@@ -8,12 +8,11 @@ interface ITabProps {
   isActive?: Boolean;
   onTabChange?: (index: number) => void;
   label: string;
-  index: string;
+  index: number;
 }
 
-function Tab(props: ITabProps) {
+function Tab({ focusColor, isActive, onTabChange, label, index }: ITabProps) {
   const actPrefixCls = `${prefixCls}${isActive ? "-active" : "-inactive"}`;
-  const { focusColor, isActive, onTabChange, label, index } = props;
   return (
     <div
       onClick={() => {
