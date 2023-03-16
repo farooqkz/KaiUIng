@@ -22,7 +22,7 @@ interface ITabViewState {
 
 class TabView extends Component<TabViewProps> {
   public focusColor: string;
-  public tabs: Array<VNode>;
+  public tabs: Array<any>;
   public state: ITabViewState;
 
   handleChangeIndex = (tabIndex: number) => {
