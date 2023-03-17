@@ -3,7 +3,11 @@ import "KaiUI/src/components/Separator/Separator.scss";
 const prefixCls = "kai-separator";
 const textCls = `${prefixCls}-text`;
 
-export default function Separator({ text: string }) {
+interface ISeparatorProps {
+  text: string;
+}
+
+export default function Separator({ text }: ISeparatorProps) {
   return (
     <div className={prefixCls}>
       <span className={textCls} $HasTextChildren>
