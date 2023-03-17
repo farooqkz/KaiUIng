@@ -11,7 +11,7 @@ interface IListViewProps {
   childern: Array<VNode> | VNode;
   cursor: number;
   cursorChangeCb?: (index: number) => void;
-  height?: number;
+  height?: number | string;
   captureKeys?: Array<string>;
 }
 
