@@ -7,14 +7,14 @@ interface IListViewState {
 }
 
 interface IListViewProps {
-  childern: Array<any>;
+  childern: Array<VNode> | VNode;
   cursor: number;
-  cursorChangeCb?: (number) => void;
+  cursorChangeCb?: (index: number) => void;
   height?: number;
   captureKeys?: Array<string>;
 }
 
-function asArray(children: Array | Element | VNode) : Array<VNode | Element> {
+function asArray(children: Array<VNode> | VNode) : Array<VNode> {
   if (children instanceof Array) {
     return children;
   } else {
@@ -24,9 +24,8 @@ function asArray(children: Array | Element | VNode) : Array<VNode | Element> {
 
 class ListView extends Component<IListViewProps> {
   public state: IListViewState;
-  public handleKeyDown: (evt: KeyboardEvent) => void;
 
-  handleKeyDown = (evt) => {
+  handleKeyDown = (evt: KeyboardEvent) => {
     let cursor = this.state.cursor;
     const { cursorChangeCb, captureKeys } = this.props;
     let children = asArray(this.props.children);
@@ -75,7 +74,7 @@ class ListView extends Component<IListViewProps> {
     document.addEventListener(
       "keydown",
       this.handleKeyDown,
-      Boolean(this.props.capture)
+      Boolean(this.props.captureKeys)
     );
   }
 
@@ -83,24 +82,25 @@ class ListView extends Component<IListViewProps> {
     document.removeEventListener(
       "keydown",
       this.handleKeyDown,
-      Boolean(this.props.capture)
+      Boolean(this.props.captureKeys)
     );
   }
 
   render() {
-    const { height, children } = this.props;
+    const { height } = this.props;
+    let children = asArray(this.props.children);
     const { cursor } = this.state;
     return (
       <div
         className={"kai-list-view"}
         style={{
-          height: height || "calc(100vh - 60px)",
+          height: (height && height.toString()) || "calc(100vh - 60px)",
         }}
       >
         {children.map((child: VNode, index: number) => {
           child.props.isFocused = index == cursor;
           return child;
-        }}
+        })}
       </div>
     );
   }
