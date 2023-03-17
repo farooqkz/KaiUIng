@@ -1,10 +1,11 @@
 import "./Avatar.css";
 
-enum presenceColor {
-  online = "green",
-  offline = "gray",
-  unavailable = "orange",
-}
+
+let presenceColor: Map<string, string> = new Map([
+  ["online", "green"],
+  ["offline", "gray"],
+  ["unavailable", "orange"],
+]);
 
 type AvatarProps = {
   avatar: string;
@@ -18,7 +19,7 @@ function Avatar({ avatar, online }: AvatarProps) {
       {online ? (
         <div
           className="avatar-presence"
-          style={{ "background-color": presenceColor[online] }}
+          style={{ "background-color": presenceColor.get(online) }}
         ></div>
       ) : null}
     </div>
