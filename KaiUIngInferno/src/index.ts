@@ -13,6 +13,8 @@ import DropDownMenu from "./DropDownMenu";
 import ListView from "./views/ListView";
 import TabView from "./views/TabView";
 
+import { asArray } from "./utils";
+
 export {
   Header,
   IconListItem,
@@ -25,5 +27,6 @@ export {
   ListView,
   TabView,
   Avatar,
-  DropDownMenu
+  DropDownMenu,
+  asArray,
 };
