@@ -47,7 +47,7 @@ class TextListItem extends Component<ITextListItemProps> {
         className={classNames(itemCls, this.className, focusedCls)}
         ref={this.divRef}
         style={`background-color: ${
-          isFocused ? morecolor.item_bg_focus_color : ""
+          isFocused ? morecolor.focusColor : ""
         }`}
       >
         <span
