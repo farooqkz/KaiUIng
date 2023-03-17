@@ -1,3 +1,4 @@
+import { VNode } from "inferno";
 import classNames from "classnames";
 import "KaiUI/src/components/IconListItem/IconListItem.scss";
 import morecolor from "../morecolor";
@@ -14,14 +15,14 @@ interface IIconListItemProps {
   secondary?: string;
   iconSrc?: string;
   iconWidth: number;
-  onClick: () => void;
-  icon?: Node | string;
-  className: string;
+  onClick?: () => void;
+  icon?: VNode | string;
+  className?: string;
   focusClass?: string;
 }
 
 function IconListItem(props: IIconListItemProps) {
-  const { isFocused, focusClass, disabled, secondary, primary, icon, iconSrc, iconWidth } = props;
+  const { isFocused, focusClass, disabled, secondary, primary, icon, iconSrc, iconWidth, onClick, className } = props;
   const focusedCls = isFocused
     ? `${prefixCls}-focused ${focusClass || ""}`
     : "";
@@ -31,7 +32,7 @@ function IconListItem(props: IIconListItemProps) {
   let renderedIcon;
   if (iconSrc)
     renderedIcon = <img src={iconSrc} alt="" width={iconWidth || 50} />;
-  else if (icon instanceof String && icon.startsWith("kai"))
+  else if (typeof icon === "string" && icon.startsWith("kai"))
     renderedIcon = <span className={icon} style={{ width: iconWidth.toString() }} />;
   // Then we assume it is a valid element TODO: check for this
   else renderedIcon = <span>{icon}</span>;
@@ -48,7 +49,7 @@ function IconListItem(props: IIconListItemProps) {
         }
       }}
       style={{
-        "background-color": isFocused ? morecolor.item_bg_focus_color : "",
+        "background-color": isFocused ? morecolor.focusColor : "",
       }}
     >
       <div className={iconCls} $HasVNodeChildren>
