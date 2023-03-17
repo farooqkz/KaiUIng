@@ -8,12 +8,13 @@ const labelCls = `${prefixCls}-label p-thi`;
 const inputCls = `${prefixCls}-label p-pri`;
 
 interface ITextInputProps {
-  onChange?: (evt: InputEvent | KeyboardEvent) => void;
+  onChange?: (evt: Event) => void;
   isFocused?: Boolean;
   fieldType: string;
   label: string;
   defaultValue?: string;
   placeholder?: string;
+  id?: string;
 }
 
 class TextInput extends Component<ITextInputProps> {
@@ -24,9 +25,11 @@ class TextInput extends Component<ITextInputProps> {
   constructor(props: ITextInputProps) {
     const { defaultValue } = props;
     super(props);
-    this.onChange = (evt) => {
-      this.setState({ value: evt.target.value });
-      if (this.props.onChange) this.props.onChange(evt.target.value);
+    this.onChange = (evt: Event) => {
+      if (evt.target) {
+        this.setState({ value: evt.target.value });
+        if (this.props.onChange) this.props.onChange(evt.target.value);
+      }
     };
 
     this.state = {
@@ -50,7 +53,7 @@ class TextInput extends Component<ITextInputProps> {
         tabIndex={0}
         className={itemCls}
         style={`background-color: ${
-          this.props.isFocused ? morecolor.item_bg_focus_color : ""
+          this.props.isFocused ? morecolor.focusColor : ""
         }`}
       >
         <label className={labelCls} $HasTextChildren>
