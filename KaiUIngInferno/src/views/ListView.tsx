@@ -33,7 +33,6 @@ class ListView extends Component<IListViewProps> {
     }
     cursor += children.length;
     cursor %= children.length;
-    findDOMNode(children[cursor]).scrollIntoView();
     this.setState({
       cursor: cursor,
     });
@@ -60,7 +59,10 @@ class ListView extends Component<IListViewProps> {
 
   componentDidUpdate() {
     const { cursor, children } = this.props;
-    findDOMNode(asArray(children)[cursor]).scrollIntoView();
+    let node: Node | null = findDOMNode(asArray(children)[cursor]);
+    if (node) {
+      node.scrollIntoView();
+    }
   }
 
   componentDidMount() {
