@@ -1,7 +1,8 @@
 import ListView from "./views/ListView";
 import Header from "./ui/Header";
 import SoftKey from "./ui/SoftKey";
-import { Component, } from "inferno";
+import { Component, VNode } from "inferno";
+import { asArray } from "./utils";
 
 interface IDropDownMenuState {
   cursor: number;
@@ -11,7 +12,7 @@ interface IDropDownMenuProps {
   title: string;
   selectCb: (label: string) => void;
   labels: Array<string>;
-  children: VNode | InfernoVNodeArray;
+  children: VNode | Array<VNode>;
 }
 
 class DropDownMenu extends Component<IDropDownMenuProps> {
@@ -26,10 +27,7 @@ class DropDownMenu extends Component<IDropDownMenuProps> {
   render() {
     const { title, selectCb, labels } = this.props;
     const cursor = this.state.cursor;
-    let children =
-      this.props.children instanceof Array
-        ? this.props.children
-        : [this.props.children];
+    let children = asArray(this.props.children);
     const listViewHeight: number =
       children.length * 6 + 3;
     const divLength: number = listViewHeight + 6;
