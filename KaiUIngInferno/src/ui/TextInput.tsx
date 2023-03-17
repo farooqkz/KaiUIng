@@ -9,7 +9,7 @@ const inputCls = `${prefixCls}-label p-pri`;
 
 interface ITextInputProps {
   onChange?: (evt: Event) => void;
-  isFocused?: Boolean;
+  isFocused?: boolean;
   fieldType: string;
   label: string;
   defaultValue?: string;

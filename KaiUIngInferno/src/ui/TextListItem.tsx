@@ -12,7 +12,7 @@ interface ITextListItemProps {
   secondary?: string;
   tertiary?: string;
   className?: string;
-  isFocused?: Boolean;
+  isFocused?: boolean;
   focusClass?: string;
 };
 
