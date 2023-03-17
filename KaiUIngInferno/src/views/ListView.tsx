@@ -1,6 +1,7 @@
 import "KaiUI/src/views/ListView/ListView.scss";
 import { Component, VNode } from "inferno";
 import { findDOMNode } from "inferno-extras";
+import { asArray } from "../utils";
 
 interface IListViewState {
   cursor: number;
@@ -12,14 +13,6 @@ interface IListViewProps {
   cursorChangeCb?: (index: number) => void;
   height?: number;
   captureKeys?: Array<string>;
-}
-
-function asArray(children: Array<VNode> | VNode) : Array<VNode> {
-  if (children instanceof Array) {
-    return children;
-  } else {
-    return [children];
-  }
 }
 
 class ListView extends Component<IListViewProps> {
