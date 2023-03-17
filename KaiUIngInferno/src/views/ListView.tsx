@@ -8,7 +8,7 @@ interface IListViewState {
 }
 
 interface IListViewProps {
-  childern: Array<VNode> | VNode;
+  children: Array<VNode> | VNode;
   cursor: number;
   cursorChangeCb?: (index: number) => void;
   height?: number | string;
@@ -40,7 +40,7 @@ class ListView extends Component<IListViewProps> {
     cursorChangeCb && cursorChangeCb(cursor);
   };
 
-  constructor(props) {
+  constructor(props: IListViewProps) {
     super(props);
     const { cursor, cursorChangeCb } = props;
     let children = asArray(props.children);
