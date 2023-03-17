@@ -33,7 +33,7 @@ class TabView extends Component<TabViewProps> {
   constructor(props: TabViewProps) {
     super(props);
     const { defaultActiveTab, focusColor, tabLabels } = props;
-    this.focusColor = focusColor || morecolors.defaultFocusColor;
+    this.focusColor = focusColor || morecolors.focusColor;
     this.tabs = tabLabels.map((label: string, index: number) => (
       <Tab label={label} focusColor={this.props.focusColor} key={label} index={index} />
     ));
