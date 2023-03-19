@@ -9,8 +9,8 @@ const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-line`;
 
 interface IIconListItemProps {
-  isFocused?: Boolean;
-  disabled?: Boolean;
+  isFocused?: boolean;
+  disabled?: boolean;
   primary: string;
   secondary?: string;
   iconSrc?: string;

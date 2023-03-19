@@ -5,7 +5,7 @@ const prefixCls = "kai-tab";
 
 interface ITabProps {
   focusColor?: string;
-  isActive?: Boolean;
+  isActive?: boolean;
   onTabChange?: (index: number) => void;
   label: string;
   index: number;
