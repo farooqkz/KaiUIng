@@ -1,12 +1,14 @@
-import { Component, VNode } from "inferno";
+import { Component } from "inferno";
 import { findDOMNode } from "inferno-extras";
 import "KaiUI/src/components/Tabs/Tabs.scss";
+import { asArray } from "../utils";
 
 const prefixCls = "kai-tabs";
 
 interface ITabsProps {
   onChangeIndex?: (cursor: number) => void;
   defaultActiveChild?: number;
+  children: any;
 }
 
 class Tabs extends Component<ITabsProps> {
@@ -17,7 +19,7 @@ class Tabs extends Component<ITabsProps> {
   handleKeyDown = (evt: KeyboardEvent) => {
     if (!["ArrowLeft", "ArrowRight"].includes(evt.key)) return;
     const { onChangeIndex } = this.props;
-    let children = (typeof this.props.childern) === "array" ? this.props.children : [this.props.childern];
+    let children = asArray(this.props.children);
     let index = this.state.activeChild;
     children[index].props.isActive = false;
     switch (evt.key) {
@@ -33,7 +35,8 @@ class Tabs extends Component<ITabsProps> {
     }
     index %= children.length;
     children[index].props.isActive = true;
-    findDOMNode(children[index]).scrollIntoView({
+    let child = findDOMNode(children[index]);
+    child && child.scrollIntoView({
       behavior: "auto",
       block: "start",
       inline: "center",
@@ -42,7 +45,7 @@ class Tabs extends Component<ITabsProps> {
     onChangeIndex && onChangeIndex(index);
   };
 
-  constructor(props) {
+  constructor(props: ITabsProps) {
     super(props);
     const { defaultActiveChild } = props;
     this.state = { activeChild: defaultActiveChild || 0 };

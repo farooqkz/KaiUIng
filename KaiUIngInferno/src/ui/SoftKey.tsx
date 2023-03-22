@@ -1,4 +1,4 @@
-import { Component, createTextVNode } from "inferno";
+import { Component, createTextVNode, VNode } from "inferno";
 import "KaiUI/src/components/SoftKey/SoftKey.scss";
 
 interface IButtonProps {
@@ -10,7 +10,7 @@ interface IButtonProps {
 
 const prefixCls = "kai-softkey";
 function Button(props: IButtonProps) {
-  let renderedIcon: InfernoVNode;
+  let renderedIcon: JSX.Element;
   if (props.icon && props.icon.toString().indexOf("kai-") === -1) {
     renderedIcon = <img src={props.icon} width={20} height={20} alt="" />;
   } else {

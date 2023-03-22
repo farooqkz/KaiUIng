@@ -8,28 +8,27 @@ const labelCls = `${prefixCls}-label p-thi`;
 const inputCls = `${prefixCls}-label p-pri`;
 
 interface ITextInputProps {
-  onChange?: (evt: Event) => void;
+  onChange?: (text: string) => void;
   isFocused?: boolean;
   fieldType: string;
   label: string;
   defaultValue?: string;
   placeholder?: string;
   id?: string;
+  focusClass?: string;
 }
 
 class TextInput extends Component<ITextInputProps> {
-  private onChange: ITextInputProps["onChange"];
+  private onChange: (_evt?: Event) => void;
   private textInput: any;
   public state: { value: string };
 
   constructor(props: ITextInputProps) {
     const { defaultValue } = props;
     super(props);
-    this.onChange = (evt: Event) => {
-      if (evt.target) {
-        this.setState({ value: evt.target.value });
-        if (this.props.onChange) this.props.onChange(evt.target.value);
-      }
+    this.onChange = (_evt?: Event) => {
+      this.setState({ value: this.textInput.value });
+      if (this.props.onChange) this.props.onChange(this.textInput.value);
     };
 
     this.state = {
@@ -44,7 +43,7 @@ class TextInput extends Component<ITextInputProps> {
   render() {
     const itemCls = classnames([
       prefixCls,
-      this.props.isFocused && `${prefixCls}--focused ${this.focusClass || ""}`,
+      this.props.isFocused && `${prefixCls}--focused ${this.props.focusClass || ""}`,
     ]);
 
     return (
