@@ -1,11 +1,11 @@
-import { Component, createTextVNode, VNode } from "inferno";
+import { Component, createTextVNode } from "inferno";
 import "KaiUI/src/components/SoftKey/SoftKey.scss";
 
 interface IButtonProps {
   id: string;
   handleClick: (evt: any) => void;
   icon?: string;
-  text: string;
+  text?: string;
 }
 
 const prefixCls = "kai-softkey";

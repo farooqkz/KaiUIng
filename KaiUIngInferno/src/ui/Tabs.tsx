@@ -35,7 +35,7 @@ class Tabs extends Component<ITabsProps> {
     }
     index %= children.length;
     children[index].props.isActive = true;
-    let child = findDOMNode(children[index]);
+    let child: HTMLElement | null = findDOMNode(children[index]) as HTMLElement;
     child && child.scrollIntoView({
       behavior: "auto",
       block: "start",

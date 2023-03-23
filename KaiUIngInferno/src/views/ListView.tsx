@@ -59,7 +59,7 @@ class ListView extends Component<IListViewProps> {
 
   componentDidUpdate() {
     const { cursor, children } = this.props;
-    let node: Node | null = findDOMNode(asArray(children)[cursor]);
+    let node: HTMLElement | null = findDOMNode(asArray(children)[cursor]) as HTMLElement;
     if (node) {
       node.scrollIntoView();
     }
