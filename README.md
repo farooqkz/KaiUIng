@@ -37,4 +37,4 @@ There are much to be done. See `TODO.md`
 ## License
 
  - KaiUIng under ISC license.
- - KaiUIng-Inferno under GPLv3 or later license as published by FSF.
+ - KaiUIng-Inferno under LGPLv3 or later license as published by FSF.
