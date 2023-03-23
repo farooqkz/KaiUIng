@@ -14,6 +14,7 @@ import ListView from "./views/ListView";
 import TabView from "./views/TabView";
 
 import { asArray } from "./utils";
+import { toast } from "./toast";
 
 export {
   Header,
@@ -29,4 +30,5 @@ export {
   Avatar,
   DropDownMenu,
   asArray,
+  toast,
 };
