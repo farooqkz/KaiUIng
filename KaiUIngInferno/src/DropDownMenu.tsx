@@ -12,7 +12,7 @@ interface IDropDownMenuProps {
   title: string;
   selectCb: (label: string) => void;
   labels: Array<string>;
-  children: VNode | Array<VNode>;
+  children: any;
 }
 
 class DropDownMenu extends Component<IDropDownMenuProps> {
@@ -62,9 +62,6 @@ class DropDownMenu extends Component<IDropDownMenuProps> {
             "Call",
           ]}
           $HasKeyedChildren
-          ref={(ref) => {
-            console.log("THE LV", ref);
-          }}
         >
           {children.map((item, index: number) => {
             item.props.isFocused = index === cursor;
