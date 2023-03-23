@@ -20,7 +20,8 @@ function Tab({ focusColor, isActive, onTabChange, label, index }: ITabProps) {
       }}
       className={actPrefixCls}
       style={{
-        "--tab-underline-color": focusColor || "var(--color-purple)", // @ts-ignore
+        // @ts-ignore
+        "--tab-underline-color": focusColor || "var(--color-purple)",
 	// underline styles are supposed to be allowed but they are not. ignoreing this.
 	// later we must report to inferno team I suppose... --Farooq
       }}
