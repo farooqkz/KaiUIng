@@ -8,7 +8,7 @@ interface IListViewState {
 }
 
 interface IListViewProps {
-  children: Array<VNode> | VNode;
+  children: any;
   cursor: number;
   cursorChangeCb?: (index: number) => void;
   height?: number | string;
