@@ -14,7 +14,7 @@ import ListView from "./views/ListView";
 import TabView from "./views/TabView";
 
 import { asArray } from "./utils";
-import { toast } from "./toast";
+import toast from "./toast";
 
 export {
   Header,
