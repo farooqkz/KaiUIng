@@ -6,6 +6,7 @@ import Tab from "./ui/Tab";
 import Tabs from "./ui/Tabs";
 import TextInput from "./ui/TextInput";
 import Separator from "./ui/Separator";
+import Button from "./ui/Button";
 
 import Avatar from "./ui/Avatar";
 import DropDownMenu from "./DropDownMenu";
@@ -29,6 +30,7 @@ export {
   TabView,
   Avatar,
   DropDownMenu,
+  Button,
   asArray,
   toast,
 };
