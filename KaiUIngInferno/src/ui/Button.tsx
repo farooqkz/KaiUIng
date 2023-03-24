@@ -1,4 +1,4 @@
-import "KaiUI/src/components/Button.scss";
+import "KaiUI/src/components/Button/Button.scss";
 import "KaiUI/src/theme/colors.scss";
 
 interface IButtonProps {
