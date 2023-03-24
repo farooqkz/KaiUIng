@@ -1,7 +1,7 @@
 import ListView from "./views/ListView";
 import Header from "./ui/Header";
 import SoftKey from "./ui/SoftKey";
-import { Component, VNode } from "inferno";
+import { Component } from "inferno";
 import { asArray } from "./utils";
 
 interface IDropDownMenuState {
