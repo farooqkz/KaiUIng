@@ -58,10 +58,11 @@ class ListView extends Component<IListViewProps> {
   }
 
   componentDidUpdate() {
-    const { cursor, children } = this.props;
+    const { children } = this.props;
+    const { cursor } = this.state;
     let node: HTMLElement | null = findDOMNode(asArray(children)[cursor]) as HTMLElement;
     if (node) {
-      node.scrollIntoView();
+      node.scrollIntoView({ block: "center" });
     }
   }
 
