@@ -61,13 +61,9 @@ class DropDownMenu extends Component<IDropDownMenuProps> {
             "SoftRight",
             "Call",
           ]}
-          $HasKeyedChildren
+          $HasNonKeyedChildren
         >
-          {children.map((item, index: number) => {
-            item.props.isFocused = index === cursor;
-            item.props.key = index;
-            return item;
-          })}
+          {children}
         </ListView>
         <SoftKey
           centerText="Select"
