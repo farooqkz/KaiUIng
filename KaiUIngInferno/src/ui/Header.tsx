@@ -21,3 +21,4 @@ function Header(props: IHeaderProps) {
 }
 
 export default Header;
+export { IHeaderProps };

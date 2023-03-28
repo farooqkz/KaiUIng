@@ -12,6 +12,8 @@ import Avatar from "./ui/Avatar";
 import DropDownMenu from "./DropDownMenu";
 
 import ListView from "./views/ListView";
+import ListViewKeyed from "./views/ListViewKeyed";
+import ListViewNonKeyed from "./views/ListViewNonKeyed";
 import TabView from "./views/TabView";
 
 import { asArray } from "./utils";
@@ -27,6 +29,8 @@ export {
   Tabs,
   Separator,
   ListView,
+  ListViewNonKeyed,
+  ListViewKeyed,
   TabView,
   Avatar,
   DropDownMenu,
