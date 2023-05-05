@@ -8,6 +8,7 @@ import {
 
 
 export function toast(message: string, timeout: number, container: HTMLElement);
+export function asArray(children: VNode | Array<VNode>): Array<VNode>;
 
 export {
   IDropDownMenuProps,
