@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "module": "dist/module.js",
   "scripts": {
-    "build": "parcel build"
+    "build": "parcel build",
+    "lint": "tslint -p ./tsconfig.json"
   },
   "repository": "https://github.com/farooqkz/KaiUIng",
   "author": "Farooq Karimi Zadeh",
