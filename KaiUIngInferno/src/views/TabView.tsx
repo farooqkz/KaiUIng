@@ -3,22 +3,11 @@ import Tabs from "../ui/Tabs";
 import Tab from "../ui/Tab";
 import "KaiUI/src/views/TabView/TabView.scss";
 import morecolors from "../morecolor";
+import { ITabViewState, TabViewProps } from "./index.d";
 
 const prefixCls = "kai-tab-view";
 const tabViewTabs = `${prefixCls}-tabs`;
 const tabViewContent = `${prefixCls}-content`;
-
-type TabViewProps = {
-  onChangeIndex?: (tab: number) => void;
-  focusColor?: string;
-  tabLabels: Array<string>;
-  defaultActiveTab?: number;
-  children: Array<VNode>;
-};
-
-interface ITabViewState {
-  activeTab: number;
-};
 
 class TabView extends Component<TabViewProps> {
   public focusColor: string;

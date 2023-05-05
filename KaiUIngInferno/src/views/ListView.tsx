@@ -2,18 +2,8 @@ import "KaiUI/src/views/ListView/ListView.scss";
 import { Component, VNode } from "inferno";
 import { findDOMNode } from "inferno-extras";
 import { asArray } from "../utils";
+import { IListViewProps, IListViewState } from "./index.d";
 
-interface IListViewState {
-  cursor: number;
-}
-
-interface IListViewProps {
-  children: any;
-  cursor: number;
-  cursorChangeCb?: (index: number) => void;
-  height?: number | string;
-  captureKeys?: Array<string>;
-}
 
 class ListView extends Component<IListViewProps> {
   public state: IListViewState;

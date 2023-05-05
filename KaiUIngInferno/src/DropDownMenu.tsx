@@ -3,17 +3,11 @@ import Header from "./ui/Header";
 import SoftKey from "./ui/SoftKey";
 import { Component } from "inferno";
 import { asArray } from "./utils";
+import {
+  IDropDownMenuProps,
+  IDropDownMenuState,
+} from "./DropDownMenu.d";
 
-interface IDropDownMenuState {
-  cursor: number;
-}
-
-interface IDropDownMenuProps {
-  title: string;
-  selectCb: (label: string) => void;
-  labels: Array<string>;
-  children: any;
-}
 
 class DropDownMenu extends Component<IDropDownMenuProps> {
   public state: IDropDownMenuState;
