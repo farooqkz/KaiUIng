@@ -1,4 +1,5 @@
 import "./Avatar.css";
+import AvatarProps from "./Avatar.d";
 
 
 let presenceColor: Map<string, string> = new Map([
@@ -6,11 +7,6 @@ let presenceColor: Map<string, string> = new Map([
   ["offline", "gray"],
   ["unavailable", "orange"],
 ]);
-
-type AvatarProps = {
-  avatar: string;
-  online?: string;
-};
 
 function Avatar({ avatar, online }: AvatarProps) {
   return (

@@ -1,10 +1,7 @@
 import "KaiUI/src/components/Header/Header.scss";
 import "KaiUI/src/theme/colors.scss";
+import IHeaderProps from "./Header.d";
 
-interface IHeaderProps {
-  text: string;
-  backgroundColor?: string;
-}
 
 function Header(props: IHeaderProps) {
   const { backgroundColor, text } = props;
@@ -21,4 +18,3 @@ function Header(props: IHeaderProps) {
 }
 
 export default Header;
-export { IHeaderProps };

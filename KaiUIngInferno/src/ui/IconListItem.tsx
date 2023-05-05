@@ -1,25 +1,14 @@
-import { VNode } from "inferno";
 import classNames from "classnames";
 import "KaiUI/src/components/IconListItem/IconListItem.scss";
 import morecolor from "../morecolor";
+import IIconListItemProps from "./IconListItem.d";
 
 const prefixCls = "kai-il";
 const lineCls = `${prefixCls}-line`;
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-line`;
 
-interface IIconListItemProps {
-  isFocused?: boolean;
-  disabled?: boolean;
-  primary: string;
-  secondary?: string;
-  iconSrc?: string;
-  iconWidth: number;
-  onClick?: () => void;
-  icon?: VNode | string;
-  className?: string;
-  focusClass?: string;
-}
+
 
 function IconListItem(props: IIconListItemProps) {
   const { isFocused, focusClass, disabled, secondary, primary, icon, iconSrc, iconWidth, onClick, className } = props;

@@ -1,15 +1,8 @@
 import "KaiUI/src/theme/colors.scss";
 import "KaiUI/src/components/Tab/Tab.scss";
+import ITabProps from "./Tab.d";
 
 const prefixCls = "kai-tab";
-
-interface ITabProps {
-  focusColor?: string;
-  isActive?: boolean;
-  onTabChange?: (index: number) => void;
-  label: string;
-  index: number;
-}
 
 function Tab({ focusColor, isActive, onTabChange, label, index }: ITabProps) {
   const actPrefixCls = `${prefixCls}${isActive ? "-active" : "-inactive"}`;

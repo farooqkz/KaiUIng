@@ -2,19 +2,11 @@ import "KaiUI/src/components/TextListItem/TextListItem.scss";
 import morecolor from "../morecolor";
 import { Component, createRef } from "inferno";
 import classNames from "classnames";
+import ITextListItemProps from "./TextListItem.d";
 
 const prefixCls = "kai-tl";
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-primary`;
-
-interface ITextListItemProps {
-  primary?: string;
-  secondary?: string;
-  tertiary?: string;
-  className?: string;
-  isFocused?: boolean;
-  focusClass?: string;
-};
 
 class TextListItem extends Component<ITextListItemProps> {
   private secondaryCls: string;

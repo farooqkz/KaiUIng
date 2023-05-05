@@ -2,14 +2,9 @@ import { Component } from "inferno";
 import { findDOMNode } from "inferno-extras";
 import "KaiUI/src/components/Tabs/Tabs.scss";
 import { asArray } from "../utils";
+import ITabsProps from "./Tabs.d";
 
 const prefixCls = "kai-tabs";
-
-interface ITabsProps {
-  onChangeIndex?: (cursor: number) => void;
-  defaultActiveChild?: number;
-  children: any;
-}
 
 class Tabs extends Component<ITabsProps> {
   state: {

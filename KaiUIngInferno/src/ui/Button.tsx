@@ -1,16 +1,7 @@
 import "KaiUI/src/components/Button/Button.scss";
 import "KaiUI/src/theme/colors.scss";
+import IButtonProps from "./Button.d";
 
-interface IButtonProps {
-  text: string;
-  icon?: any;
-  iconSrc?: string;
-  iconSide?: "left" | "right";
-  onClick?: () => void;
-  focusColor?: string;
-  type?: "button" | "submit" | "reset";
-  isFocused?: boolean;
-}
 
 const buttonCls = "kai-button";
 const inputCls = `${buttonCls}-input`;

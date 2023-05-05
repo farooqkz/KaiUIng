@@ -2,21 +2,11 @@ import { Component } from "inferno";
 import classnames from "classnames";
 import "KaiUI/src/components/TextInput/TextInput.scss";
 import morecolor from "../morecolor";
+import ITextInputProps from "./TextInput.d";
 
 const prefixCls = "kai-text-input";
 const labelCls = `${prefixCls}-label p-thi`;
 const inputCls = `${prefixCls}-label p-pri`;
-
-interface ITextInputProps {
-  onChange?: (text: string) => void;
-  isFocused?: boolean;
-  fieldType: string;
-  label: string;
-  defaultValue?: string;
-  placeholder?: string;
-  id?: string;
-  focusClass?: string;
-}
 
 class TextInput extends Component<ITextInputProps> {
   private onChange: (_evt?: Event) => void;

@@ -1,11 +1,8 @@
 import "KaiUI/src/components/Separator/Separator.scss";
+import ISeparatorProps from "./Separator.d";
 
 const prefixCls = "kai-separator";
 const textCls = `${prefixCls}-text`;
-
-interface ISeparatorProps {
-  text: string;
-}
 
 export default function Separator({ text }: ISeparatorProps) {
   return (

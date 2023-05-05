@@ -1,12 +1,6 @@
 import { Component, createTextVNode } from "inferno";
 import "KaiUI/src/components/SoftKey/SoftKey.scss";
-
-interface IButtonProps {
-  id: string;
-  handleClick: (evt: any) => void;
-  icon?: string;
-  text?: string;
-}
+import { IButtonProps, ISoftKeyProps } from "./SoftKey.d";
 
 const prefixCls = "kai-softkey";
 function Button(props: IButtonProps) {
@@ -29,17 +23,7 @@ function Button(props: IButtonProps) {
   );
 }
 
-interface ISoftKeyProps {
-  leftCb?: () => void,
-  rightCb?: () => void,
-  centerCb?: () => void,
-  centerText?: string,
-  leftText?: string,
-  rightText?: string,
-  rightIcon?: string,
-  centerIcon?: string,
-  leftIcon?: string
-}
+
 
 class SoftKey extends Component<ISoftKeyProps> {
   handleKeyDown = (evt: KeyboardEvent | { key: string }) => {
