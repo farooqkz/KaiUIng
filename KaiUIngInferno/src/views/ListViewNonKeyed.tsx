@@ -2,21 +2,10 @@ import "KaiUI/src/views/ListView/ListView.scss";
 import { Component, VNode } from "inferno";
 import { findDOMNode } from "inferno-extras";
 import { asArray } from "../utils";
+import { ListViewProps, ListViewState } from "./ListViewTypes";
 
-interface IListViewState {
-  cursor: number;
-}
-
-interface IListViewProps {
-  children: any;
-  cursor: number;
-  cursorChangeCb?: (index: number) => void;
-  height?: number | string;
-  captureKeys?: Array<string>;
-}
-
-class ListViewNonKeyed extends Component<IListViewProps> {
-  public state: IListViewState;
+class ListViewNonKeyed extends Component<ListViewProps> {
+  public state: ListViewState;
 
   handleKeyDown = (evt: KeyboardEvent) => {
     let cursor = this.state.cursor;
@@ -39,7 +28,7 @@ class ListViewNonKeyed extends Component<IListViewProps> {
     cursorChangeCb && cursorChangeCb(cursor);
   };
 
-  constructor(props: IListViewProps) {
+  constructor(props: ListViewProps) {
     super(props);
     const { cursor, cursorChangeCb } = props;
     let children = asArray(props.children);
