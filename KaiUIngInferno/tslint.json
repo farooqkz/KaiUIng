@@ -1,0 +1,8 @@
+{
+  "extends": "tslint-config-prettier",
+  "rules": {
+    "ordered-imports": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implict-dependencies": [true, "dev"]
+  }
+}
