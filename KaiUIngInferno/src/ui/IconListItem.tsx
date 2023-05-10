@@ -8,7 +8,7 @@ const lineCls = `${prefixCls}-line`;
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-line`;
 
-interface IIconListItemProps {
+interface IconListItemProps {
   isFocused?: boolean;
   disabled?: boolean;
   primary: string;
@@ -21,7 +21,7 @@ interface IIconListItemProps {
   focusClass?: string;
 }
 
-function IconListItem(props: IIconListItemProps) {
+function IconListItem(props: IconListItemProps) {
   const { isFocused, focusClass, disabled, secondary, primary, icon, iconSrc, iconWidth, onClick, className } = props;
   const focusedCls = isFocused
     ? `${prefixCls}-focused ${focusClass || ""}`

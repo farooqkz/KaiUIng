@@ -4,20 +4,20 @@ import SoftKey from "./ui/SoftKey";
 import { Component } from "inferno";
 import { asArray } from "./utils";
 
-interface IDropDownMenuState {
+interface DropDownMenuState {
   cursor: number;
 }
 
-interface IDropDownMenuProps {
+interface DropDownMenuProps {
   title: string;
   selectCb: (label: string) => void;
   labels: Array<string>;
   children: any;
 }
 
-class DropDownMenu extends Component<IDropDownMenuProps> {
-  public state: IDropDownMenuState;
-  constructor(props: IDropDownMenuProps) {
+class DropDownMenu extends Component<DropDownMenuProps> {
+  public state: DropDownMenuState;
+  constructor(props: DropDownMenuProps) {
     super(props);
     this.state = {
       cursor: 0,
@@ -46,7 +46,7 @@ class DropDownMenu extends Component<IDropDownMenuProps> {
       >
         <Header text={title} />
         <ListView
-          cursorChangeCb={(cur: number) => this.setState((state: IDropDownMenuState) => {
+          cursorChangeCb={(cur: number) => this.setState((state: DropDownMenuState) => {
             state.cursor = cur;
             return;
           })}

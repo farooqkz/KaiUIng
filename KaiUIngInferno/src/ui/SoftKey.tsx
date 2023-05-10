@@ -1,7 +1,7 @@
 import { Component, createTextVNode } from "inferno";
 import "KaiUI/src/components/SoftKey/SoftKey.scss";
 
-interface IButtonProps {
+interface ButtonProps {
   id: string;
   handleClick: (evt: any) => void;
   icon?: string;
@@ -9,7 +9,7 @@ interface IButtonProps {
 }
 
 const prefixCls = "kai-softkey";
-function Button(props: IButtonProps) {
+function Button(props: ButtonProps) {
   let renderedIcon: JSX.Element;
   if (props.icon && props.icon.toString().indexOf("kai-") === -1) {
     renderedIcon = <img src={props.icon} width={20} height={20} alt="" />;
@@ -29,7 +29,7 @@ function Button(props: IButtonProps) {
   );
 }
 
-interface ISoftKeyProps {
+interface SoftKeyProps {
   leftCb?: () => void,
   rightCb?: () => void,
   centerCb?: () => void,
@@ -41,7 +41,7 @@ interface ISoftKeyProps {
   leftIcon?: string
 }
 
-class SoftKey extends Component<ISoftKeyProps> {
+class SoftKey extends Component<SoftKeyProps> {
   handleKeyDown = (evt: KeyboardEvent | { key: string }) => {
     const { centerCb, rightCb, leftCb } = this.props;
     switch (evt.key) {

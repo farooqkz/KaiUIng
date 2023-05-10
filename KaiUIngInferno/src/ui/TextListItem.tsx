@@ -7,7 +7,7 @@ const prefixCls = "kai-tl";
 const itemCls = prefixCls;
 const primaryCls = `${prefixCls}-primary`;
 
-interface ITextListItemProps {
+interface TextListItemProps {
   primary?: string;
   secondary?: string;
   tertiary?: string;
@@ -16,13 +16,13 @@ interface ITextListItemProps {
   focusClass?: string;
 };
 
-class TextListItem extends Component<ITextListItemProps> {
+class TextListItem extends Component<TextListItemProps> {
   private secondaryCls: string;
   private tertiaryCls: string;
   private className: string;
   private divRef: any;
 
-  constructor(props: ITextListItemProps) {
+  constructor(props: TextListItemProps) {
     const { tertiary, secondary, className } = props;
     super(props);
     this.secondaryCls = `${prefixCls}-secondary ${secondary ? "" : "hidden"}`;

@@ -1,7 +1,7 @@
 import "KaiUI/src/components/Button/Button.scss";
 import "KaiUI/src/theme/colors.scss";
 
-interface IButtonProps {
+interface ButtonProps {
   text: string;
   icon?: any;
   iconSrc?: string;
@@ -18,7 +18,7 @@ const lineClsPrefix = `${buttonCls}-line`;
 const textCls = `${buttonCls}-text`;
 const iconClsPrefix = `${buttonCls}-icon-`;
 
-export default function Button({ text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type }: IButtonProps) {
+export default function Button({ text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type }: ButtonProps) {
   let lineCls = lineClsPrefix + " ";
   if (iconSide === "right") {
      lineCls += "left";

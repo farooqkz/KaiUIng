@@ -5,13 +5,13 @@ import { asArray } from "../utils";
 
 const prefixCls = "kai-tabs";
 
-interface ITabsProps {
+interface TabsProps {
   onChangeIndex?: (cursor: number) => void;
   defaultActiveChild?: number;
   children: any;
 }
 
-class Tabs extends Component<ITabsProps> {
+class Tabs extends Component<TabsProps> {
   state: {
     activeChild: number;
   }
@@ -45,7 +45,7 @@ class Tabs extends Component<ITabsProps> {
     onChangeIndex && onChangeIndex(index);
   };
 
-  constructor(props: ITabsProps) {
+  constructor(props: TabsProps) {
     super(props);
     const { defaultActiveChild } = props;
     this.state = { activeChild: defaultActiveChild || 0 };
