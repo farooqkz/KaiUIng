@@ -16,14 +16,14 @@ type TabViewProps = {
   children: Array<VNode>;
 };
 
-interface ITabViewState {
+interface TabViewState {
   activeTab: number;
 };
 
 class TabView extends Component<TabViewProps> {
   public focusColor: string;
   public tabs: Array<any>;
-  public state: ITabViewState;
+  public state: TabViewState;
 
   handleChangeIndex = (tabIndex: number) => {
     this.setState({ activeTab: tabIndex });
