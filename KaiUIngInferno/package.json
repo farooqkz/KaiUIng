@@ -9,7 +9,8 @@
   "scripts": {
     "build": "parcel build",
     "lint": "tslint -p ./tsconfig.json",
-    "check": "tsc --noEmit"
+    "check": "tsc -p ./tsconfig.json --noEmit",
+    "test": "yarn run check && yarn run lint"
   },
   "repository": "https://github.com/farooqkz/KaiUIng",
   "author": "Farooq Karimi Zadeh",

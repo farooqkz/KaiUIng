@@ -1,0 +1,28 @@
+
+name: Code Checks
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  inferno:
+    name: inferno lib
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: yarn install
+      run: |
+        yarn
+    - name: Check Typescript Types
+      run: |
+        yarn run check
+    - name: Run Typescript Lint
+      run: |
+        yarn run lint
+    - name: Build
+      run: |
+        yarn build
