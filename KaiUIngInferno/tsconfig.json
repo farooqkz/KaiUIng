@@ -14,5 +14,8 @@
     "lib": ["es2017", "dom"],
     "allowSyntheticDefaultImports": true,
     "types": ["inferno"]
-  }
+  },
+  "exclude": [
+    "dist"
+  ]
 }
