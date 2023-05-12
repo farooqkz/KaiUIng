@@ -11,6 +11,9 @@ jobs:
   inferno:
     name: inferno lib
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./KaiUIngInferno
 
     steps:
     - uses: actions/checkout@v1
