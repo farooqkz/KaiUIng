@@ -5,9 +5,11 @@
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/module.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "parcel build",
-    "lint": "tslint -p ./tsconfig.json"
+    "lint": "tslint -p ./tsconfig.json",
+    "check": "tsc --noEmit"
   },
   "repository": "https://github.com/farooqkz/KaiUIng",
   "author": "Farooq Karimi Zadeh",
@@ -19,9 +21,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@parcel/packager-ts": "2.8.3",
     "@parcel/transformer-babel": "^2.8.3",
     "@parcel/transformer-sass": "^2.8.3",
     "@parcel/transformer-typescript-tsc": "^2.8.3",
+    "@parcel/transformer-typescript-types": "^2.8.3",
     "babel-plugin-inferno": "^6.6.0",
     "classnames": "^2.3.2",
     "inferno": "^8.0.6",
@@ -58,6 +62,10 @@
         "inferno-extras": false,
         "classnames": false
       }
+    },
+    "types": {
+      "isLibrary": true,
+      "source": "src/index.ts"
     }
   }
 }
