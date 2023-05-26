@@ -1,6 +1,6 @@
 {
   "name": "kaiuing-inferno",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Inferno library for KaiUIng",
   "source": "src/index.ts",
   "main": "dist/index.js",
