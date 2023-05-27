@@ -4,9 +4,7 @@ import { findDOMNode } from "inferno-extras";
 import { asArray } from "../utils";
 import { ListViewProps, ListViewState } from "./ListViewTypes";
 
-class ListViewNonKeyed extends Component<ListViewProps> {
-  public state: ListViewState;
-
+class ListViewNonKeyed extends Component<ListViewProps, ListViewState> {
   handleKeyDown = (evt: KeyboardEvent) => {
     let cursor = this.state.cursor;
     const { cursorChangeCb, captureKeys } = this.props;

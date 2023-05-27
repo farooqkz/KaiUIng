@@ -5,9 +5,7 @@ import { asArray } from "../utils";
 import { ListViewProps, ListViewState } from "./ListViewTypes";
 
 
-class ListView extends Component<ListViewProps> {
-  public state: ListViewState;
-
+class ListView extends Component<ListViewProps, ListViewState> {
   handleKeyDown = (evt: KeyboardEvent) => {
     let cursor = this.state.cursor;
     const { cursorChangeCb, captureKeys } = this.props;

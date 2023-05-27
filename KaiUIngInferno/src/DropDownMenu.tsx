@@ -15,8 +15,7 @@ interface DropDownMenuProps {
   children: any;
 }
 
-class DropDownMenu extends Component<DropDownMenuProps> {
-  public state: DropDownMenuState;
+class DropDownMenu extends Component<DropDownMenuProps, DropDownMenuState> {
   constructor(props: DropDownMenuProps) {
     super(props);
     this.state = {
