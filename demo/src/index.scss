@@ -1,0 +1,23 @@
+.component-showcase {
+  display: flex;
+
+  .component-showcase-phone {
+    .screen {
+      // N8110-4G 240 x 384
+      display: block;
+      width: 240px;
+      height: 384px;
+      border: 3px solid black;
+
+      // todo maybe prevent clicking it so it can only be controlled through buttons
+    }
+  }
+  .component-showcase-source-code {
+    code {
+      display: block;
+      padding: 20px;
+      border: 1px darkgrey solid;
+      white-space: pre;
+    }
+  }
+}
