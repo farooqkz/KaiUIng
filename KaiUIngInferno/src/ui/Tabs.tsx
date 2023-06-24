@@ -11,7 +11,7 @@ interface TabsProps {
   children: any;
 }
 
-class Tabs extends Component<TabsProps> {
+class Tabs extends Component<TabsProps, { activeChild: number }> {
   state: {
     activeChild: number;
   }

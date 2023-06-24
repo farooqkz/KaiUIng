@@ -23,6 +23,7 @@ interface TabViewState {
 class TabView extends Component<TabViewProps, TabViewState> {
   public focusColor: string;
   public tabs: Array<any>;
+  public state: TabViewState;
   handleChangeIndex = (tabIndex: number) => {
     this.setState({ activeTab: tabIndex });
     if (this.props.onChangeIndex) this.props.onChangeIndex(tabIndex);
