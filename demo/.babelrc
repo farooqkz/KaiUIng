@@ -1,0 +1,8 @@
+{
+  "plugins": ["inferno", ["prismjs", {
+    "languages": ["typescript", "tsx", "css", "markup"],
+    "plugins": ["line-numbers"],
+    "theme": "twilight",
+    "css": true
+}]]
+}
