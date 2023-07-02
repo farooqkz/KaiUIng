@@ -1,6 +1,6 @@
 {
   "name": "kaiuing-inferno",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Inferno library for KaiUIng",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
   "private": false,
   "dependencies": {
     "@swc/helpers": "^0.4.14",
-    "KaiUI": "npm:kaiuing@^2.0.0"
+    "KaiUI": "npm:kaiuing@^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
