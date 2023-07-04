@@ -79,7 +79,7 @@ class ListView extends Component<ListViewProps, ListViewState> {
       <div
         className={"kai-list-view"}
         style={{
-          height: (height && height.toString()) || "calc(100vh - 60px)",
+          height: (height?.toString()) || "calc(100vh - 60px)",
         }}
       >
         {children.map((child: VNode, index: number) => {
