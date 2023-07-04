@@ -34,7 +34,20 @@ export default function Button({ text, isFocused, onClick, icon, iconSrc, iconSi
   );
 
   return (
-    <div className={buttonCls}>
+    <div className={buttonCls} tabIndex={0} ref={(ref: HTMLElement | null) => {
+      if (ref) {
+        if (isFocused) {
+          ref.focus();
+        } else {
+          ref.blur();
+        }
+        ref.onkeydown = (evt: KeyboardEvent) => {
+          if (evt.key === "Enter") {
+            onClick && onClick();
+          }
+        };
+      }
+    }}>
       <button
         tabIndex={0}
         className={inputCls}
