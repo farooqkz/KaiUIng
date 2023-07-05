@@ -1,3 +1,4 @@
+import { linkEvent } from "inferno";
 import "KaiUI/src/components/Button/Button.scss";
 import "KaiUI/src/theme/colors.scss";
 
@@ -18,7 +19,15 @@ const lineClsPrefix = `${buttonCls}-line`;
 const textCls = `${buttonCls}-text`;
 const iconClsPrefix = `${buttonCls}-icon-`;
 
-export default function Button({ text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type }: ButtonProps) {
+function handleKeyDown(props: ButtonProps, evt: KeyboardEvent) {
+  if (evt.key === "Enter" && props.isFocused && props.onClick) {
+    props.onClick();
+  }
+}
+
+
+export default function Button(props: ButtonProps) {
+  const { text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type } = props;
   let lineCls = lineClsPrefix + " ";
   if (iconSide === "right") {
      lineCls += "left";
@@ -34,18 +43,13 @@ export default function Button({ text, isFocused, onClick, icon, iconSrc, iconSi
   );
 
   return (
-    <div className={buttonCls} tabIndex={0} ref={(ref: HTMLElement | null) => {
+    <div onKeyDown={ linkEvent(props, handleKeyDown) } className={buttonCls} tabIndex={0} ref={(ref: HTMLElement | null) => {
       if (ref) {
         if (isFocused) {
           ref.focus();
         } else {
           ref.blur();
         }
-        ref.onkeydown = (evt: KeyboardEvent) => {
-          if (evt.key === "Enter") {
-            onClick && onClick();
-          }
-        };
       }
     }}>
       <button
