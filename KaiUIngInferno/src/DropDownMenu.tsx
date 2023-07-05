@@ -11,7 +11,7 @@ interface DropDownMenuState {
 interface DropDownMenuProps {
   title: string;
   selectCb: (label: string) => void;
-  labels: Array<string>;
+  labels: string[];
   children: any;
 }
 

@@ -11,9 +11,9 @@ const tabViewContent = `${prefixCls}-content`;
 type TabViewProps = {
   onChangeIndex?: (tab: number) => void;
   focusColor?: string;
-  tabLabels: Array<string>;
+  tabLabels: string[];
   defaultActiveTab?: number;
-  children: Array<VNode>;
+  children: VNode[];
 };
 
 interface TabViewState {
