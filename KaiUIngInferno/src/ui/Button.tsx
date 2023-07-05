@@ -1,4 +1,4 @@
-import { linkEvent } from "inferno";
+import { RefObject, linkEvent, Component, createRef } from "inferno";
 import "KaiUI/src/components/Button/Button.scss";
 import "KaiUI/src/theme/colors.scss";
 
@@ -26,45 +26,56 @@ function handleKeyDown(props: ButtonProps, evt: KeyboardEvent) {
 }
 
 
-export default function Button(props: ButtonProps) {
-  const { text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type } = props;
-  let lineCls = lineClsPrefix + " ";
-  if (iconSide === "right") {
-     lineCls += "left";
-  } else if (iconSide === "left") {
-    lineCls += "right";
+export default class Button extends Component<ButtonProps, {}> {
+  public state: null = null;
+  private divRef: RefObject<HTMLDivElement>;
+  
+  constructor(props: any) {
+    super(props);
+    this.divRef = createRef();
   }
-  let renderedIcon = !!iconSrc ? <img src={iconSrc} alt="" /> : <span className={icon} />;
-  let iconCls = iconClsPrefix + (isFocused? "focused" : "unfocused");
-  let iconComp = (
-    <div className={iconCls} $HasVNodeChildren>
-      {renderedIcon}
-    </div>
-  );
+  
+  componentDidUpdate(_prevProps: ButtonProps, newProps: ButtonProps) {
+    if (this.divRef.current) {
+      if (newProps.isFocused) 
+        this.divRef.current.focus();
+      else
+        this.divRef.current.blur();
+    }
+  }
 
-  return (
-    <div onKeyDown={ linkEvent(props, handleKeyDown) } className={buttonCls} tabIndex={0} ref={(ref: HTMLElement | null) => {
-      if (ref) {
-        if (isFocused) {
-          ref.focus();
-        } else {
-          ref.blur();
-        }
-      }
-    }}>
-      <button
-        tabIndex={0}
-        className={inputCls}
-        style={{ "background-color": isFocused ? (focusColor || "var(--color-purple)") : "var(--color-gs20)" }}
-        type={type}
-        onClick={onClick}
-      >
-        {iconSide === "left" ? iconComp : null}
-        <div className={lineCls}>
-          <span className={textCls} $HasTextChildren>{text}</span>
-        </div>
-        {iconSide === "right"? iconComp : null}
-      </button>
-    </div>
-  );
-};
+  render() {
+    const { text, isFocused, onClick, icon, iconSrc, iconSide, focusColor, type } = this.props;
+    let lineCls = lineClsPrefix + " ";
+    if (iconSide === "right") {
+       lineCls += "left";
+    } else if (iconSide === "left") {
+      lineCls += "right";
+    }
+    let renderedIcon = !!iconSrc ? <img src={iconSrc} alt="" /> : <span className={icon} />;
+    let iconCls = iconClsPrefix + (isFocused? "focused" : "unfocused");
+    let iconComp = (
+      <div className={iconCls} $HasVNodeChildren>
+        {renderedIcon}
+      </div>
+    );
+
+    return (
+      <div onKeyDown={ linkEvent(this.props, handleKeyDown) } className={buttonCls} tabIndex={0} ref={this.divRef}>
+        <button
+          tabIndex={0}
+          className={inputCls}
+          style={{ "background-color": isFocused ? (focusColor || "var(--color-purple)") : "var(--color-gs20)" }}
+          type={type}
+          onClick={onClick}
+        >
+          {iconSide === "left" ? iconComp : null}
+          <div className={lineCls}>
+            <span className={textCls} $HasTextChildren>{text}</span>
+          </div>
+          {iconSide === "right"? iconComp : null}
+        </button>
+      </div>
+    );
+  }
+}
