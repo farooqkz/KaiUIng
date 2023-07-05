@@ -39,8 +39,8 @@
   },
   "peerDependencies": {
     "classnames": "^2.3.2",
-    "inferno": "^8",
-    "inferno-extras": "^8"
+    "inferno": "^8.2.2",
+    "inferno-extras": "^8.2.2"
   },
   "browserslist": "Firefox 48",
   "targets": {
