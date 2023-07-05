@@ -7,7 +7,7 @@ interface ListViewProps {
   cursor: number;
   cursorChangeCb?: (index: number) => void;
   height?: number | string;
-  captureKeys?: Array<string>;
+  captureKeys?: string[];
 }
 
 export { ListViewProps, ListViewState };

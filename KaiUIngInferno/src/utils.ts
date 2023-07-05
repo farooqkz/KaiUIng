@@ -1,6 +1,6 @@
 import { VNode } from "inferno";
 
-function asArray(children: VNode | Array<VNode>) : Array<VNode> {
+function asArray(children: VNode | VNode[]) : VNode[] {
   if (children instanceof Array) {
     return children;
   } else {
