@@ -29,7 +29,7 @@
     "@parcel/transformer-typescript-types": "2.8.3",
     "babel-plugin-inferno": "^6.6.0",
     "classnames": "^2.3.2",
-    "inferno": "^8.0.6",
+    "inferno": "^8.2.2",
     "inferno-extras": "^8.0.6",
     "parcel": "^2.8.3",
     "ts-plugin-inferno": "^1.0.0",
