@@ -35,7 +35,7 @@ export default class Button extends Component<ButtonProps, {}> {
     this.divRef = createRef();
   }
   
-  componentDidUpdate(prevProps: Readonly<{ children?: any; } & ButtonProps>, prevState: Readonly<{}>) {
+  componentDidUpdate(prevProps: Readonly<{ children?: any; } & ButtonProps>) {
     if (this.divRef.current) {
       if (prevProps.isFocused) 
         this.divRef.current.focus();
