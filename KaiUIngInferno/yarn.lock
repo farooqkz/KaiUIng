@@ -873,6 +873,18 @@
     "@parcel/source-map" "^2.1.1"
     "@parcel/ts-utils" "2.9.3"
 
+"@parcel/transformer-typescript-types@2.9.3":
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-typescript-types/-/transformer-typescript-types-2.9.3.tgz#6f74b807da228e8944aefa21d4a7c21e576dec85"
+  integrity sha512-W+Ze3aUTdZuBQokXlkEQ/1hUApUm6VRyYzPqEs9jcqCqU8mv18i5ZGAz4bMuIJOBprp7M2wt10SJJx/SC1pl1A==
+  dependencies:
+    "@parcel/diagnostic" "2.9.3"
+    "@parcel/plugin" "2.9.3"
+    "@parcel/source-map" "^2.1.1"
+    "@parcel/ts-utils" "2.9.3"
+    "@parcel/utils" "2.9.3"
+    nullthrows "^1.1.1"
+
 "@parcel/ts-utils@2.9.3":
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/@parcel/ts-utils/-/ts-utils-2.9.3.tgz#106a7251019a9301ac67b56c921d4cfc3999542a"
