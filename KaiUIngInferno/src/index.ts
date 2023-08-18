@@ -10,6 +10,8 @@ import Button from "./ui/Button";
 
 import Avatar from "./ui/Avatar";
 import DropDownMenu from "./DropDownMenu";
+import OptionItem from "./ui/OptionItem";
+import OptionMenu from "./ui/OptionMenu";
 
 import ListView from "./views/ListView";
 import ListViewKeyed from "./views/ListViewKeyed";
@@ -37,4 +39,6 @@ export {
   Button,
   asArray,
   toast,
+  OptionMenu,
+  OptionItem,
 };
