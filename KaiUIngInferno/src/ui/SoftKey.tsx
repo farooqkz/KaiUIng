@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const prefixCls = "kai-softkey";
 function Button(props: ButtonProps) {
-  let renderedIcon: HTMLElement;
+  let renderedIcon: Component;
   if (props.icon && props.icon.toString().indexOf("kai-") === -1) {
     renderedIcon = <img src={props.icon} width={20} height={20} alt="" />;
   } else {
