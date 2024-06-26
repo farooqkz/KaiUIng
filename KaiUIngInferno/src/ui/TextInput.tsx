@@ -1,4 +1,4 @@
-import { Component } from "inferno";
+import { Component, RefObject, createRef } from "inferno";
 import classnames from "classnames";
 import "KaiUI/src/components/TextInput/TextInput.scss";
 import morecolor from "../morecolor";
@@ -7,7 +7,7 @@ const prefixCls = "kai-text-input";
 const labelCls = `${prefixCls}-label p-thi`;
 const inputCls = `${prefixCls}-label p-pri`;
 
-interface TextInputProps {
+interface Props {
   onChange?: (text: string) => void;
   isFocused?: boolean;
   fieldType: string;
@@ -18,17 +18,30 @@ interface TextInputProps {
   focusClass?: string;
 }
 
-class TextInput extends Component<TextInputProps> {
+interface State {
+  value: string;
+}
+
+class TextInput extends Component<Props, State> {
   private onChange: (_evt?: Event) => void;
-  private textInput: any;
+  private textInputRef: RefObject<HTMLInputElement>;
   public state: { value: string };
 
-  constructor(props: TextInputProps) {
+  onKeyDown = (evt: KeyboardEvent) => {
+    if (!this.props.isFocused) return; // do we need this? --Farooq
+    if (evt.key === "ArrowLeft" || evt.key === "ArrowRight") {
+      evt.stopImmediatePropagation();
+    }
+  };
+
+  constructor(props: any) {
     const { defaultValue } = props;
     super(props);
+    this.textInputRef = createRef();
     this.onChange = (_evt?: Event) => {
-      this.setState({ value: this.textInput.value });
-      if (this.props.onChange) this.props.onChange(this.textInput.value);
+      if (!this.textInputRef.current) return;
+      this.setState({ value: this.textInputRef.current.value });
+      if (this.props.onChange) this.props.onChange(this.textInputRef.current.value);
     };
 
     this.state = {
@@ -36,8 +49,18 @@ class TextInput extends Component<TextInputProps> {
     };
   }
 
+
+
+  componentDidMount() {
+    this.textInputRef.current?.addEventListener("keydown", this.onKeyDown, true)
+  }
+
+  componentWillUnmount() {
+    this.textInputRef.current?.removeEventListener("keydown", this.onKeyDown, true)
+  }
+
   componentDidUpdate() {
-    if (this.props.isFocused) this.textInput.focus();
+    if (this.props.isFocused) this.textInputRef.current?.focus();
   }
 
   render() {
@@ -51,9 +74,8 @@ class TextInput extends Component<TextInputProps> {
         id={this.props.id}
         tabIndex={0}
         className={itemCls}
-        style={`background-color: ${
-          this.props.isFocused ? morecolor.focusColor : ""
-        }`}
+        style={`background-color: ${this.props.isFocused ? morecolor.focusColor : ""
+          }`}
       >
         <label className={labelCls} $HasTextChildren>
           {this.props.label}
@@ -70,9 +92,7 @@ class TextInput extends Component<TextInputProps> {
           defaultValue={this.state.value || ""}
           placeholder={this.props.placeholder || ""}
           style={`color: ${this.props.isFocused ? "var(--text-color)" : ""}`}
-          ref={(input) => {
-            this.textInput = input;
-          }}
+          ref={this.textInputRef}
         />
       </div>
     );
