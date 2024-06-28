@@ -1,6 +1,4 @@
-import { VNode } from "inferno";
-
-function asArray(children: VNode | VNode[]) : VNode[] {
+function asArray(children: any | any[]) : any[] {
   if (children instanceof Array) {
     return children;
   } else {
